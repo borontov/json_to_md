@@ -1,5 +1,5 @@
 # Install
-1. Install poetry and update script dependencies
+Install poetry and update script dependencies
 # Usage
 1. Put your settings in settings.py and .json data (optionally, with attachments) in data folder you set in settings.py
 2. Add your template to templates/ folder
