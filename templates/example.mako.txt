@@ -1,0 +1,31 @@
+% for date, messages_chunk in messages_chunks_sorted_by_date:
+# ${date}
+% for message in messages_chunk:
+
+
+% for field in fields:
+% if message.get(field):
+% if field == "text" and isinstance(message.get(field), list):
+${field}:
+% for item in message.get(field):
+${item}\
+% endfor
+% elif field in ("photo", "file", "thumbnail") and isinstance(message.get(field), str):
+${field}:
+% if "File exceeds maximum size" not in message.get(field):
+% if field == "file":
+[(<${message.get(field)}>)](<${message.get(field)}>)
+% else:
+[![](<${message.get(field)}>)](<${message.get(field)}>)
+% endif
+% endif
+% else:
+${field}: ${message.get(field)}
+% endif
+% endif
+% endfor
+
+
+
+% endfor
+% endfor
